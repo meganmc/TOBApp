@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <security-constraint>
+           
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>programmer</role-name>
+            <role-name>service</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/login_error.html</form-error-page>
+        </form-login-config>
+        <realm-name>Admin Login</realm-name>
+    </login-config>
+    <servlet>
+        <servlet-name>ReportsServlet</servlet-name>
+        <servlet-class>TOBApackages.ReportsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportsServlet</servlet-name>
+        <url-pattern>/ReportsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>TOBApackaages.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NewCustomerServlet</servlet-name>
+        <servlet-class>TOBApackages.NewCustomerServlet</servlet-class>
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewCustomerServlet</servlet-name>
+        <url-pattern>/NewCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Transaction</servlet-name>
+        <servlet-class>TOBApackages.Transactions</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Transaction</servlet-name>
+        <url-pattern>/Transaction</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>User</servlet-name>
+        <servlet-class>TOBApackages.User</servlet-class>
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>User</servlet-name>
+        <url-pattern>/User</url-pattern>
+    </servlet-mapping>
+                
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
