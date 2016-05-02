@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/TOBApp"/>
+<!-- maxActive: maximum number of database connections inp ool. Make suer you configure your mysqld max_connections large enough to handle all your db connections. Set to -1 for no limit.-->
+
+
+<Resource name="connection" auth="Container" type="javax.sql.Datasource" maxActive="100" maxIdle="30" username="meganmc" password="password" driverClassName="com.mysql.jdbc.Driver" url=""></Resource>
